@@ -18,7 +18,7 @@ const SERVICES = [
 
 const AboutUs = () => {
   return (
-    <div className="flex flex-col pt-10 lg:pt-16 lg:pb-16 gap-16">
+    <section className="flex flex-col pt-10 lg:pt-16 lg:pb-16 gap-16">
       <div className="flex justify-between items-center">
         <div className="flex flex-col gap-10 flex-1">
           <h2 className="font-medium text-neutral-800 dark:text-neutral-200 text-4xl md:text-5xl xl:text-5xl !leading-[114%]">
@@ -95,7 +95,7 @@ const AboutUs = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
