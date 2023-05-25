@@ -24,5 +24,3 @@ const MainSection = () => {
 };
 
 export default MainSection;
-
-// max-w-[624px]

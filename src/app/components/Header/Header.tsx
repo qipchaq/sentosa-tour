@@ -6,7 +6,7 @@ import Button from '../shared/Button';
 
 const Header = () => {
   return (
-    <header className="sticky top-0 w-full left-0 right-0 z-40 shadow-sm dark:border-b dark:border-neutral-700">
+    <header className="sticky bg-white top-0 w-full left-0 right-0 z-40 shadow-sm dark:border-b dark:border-neutral-700">
       <div className="px-4 lg:container py-4 lg:py-5 relative flex justify-between items-center m-auto">
         <Image src={logo} alt="logo" width={130} height={25} />
         <div className="flex items-center gap-2">
