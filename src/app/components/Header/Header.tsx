@@ -10,22 +10,40 @@ const Header = () => {
       <div className="px-4 lg:container py-4 lg:py-5 relative flex justify-between items-center m-auto">
         <Image src={logo} alt="logo" width={130} height={25} />
         <div className="flex items-center gap-2">
-          <a className="btn btn-ghost normal-case text-xl rounded-full">
+          <a
+            className="btn btn-ghost normal-case text-xl rounded-full"
+            href="/"
+          >
             Главная
           </a>
-          <a className="btn btn-ghost normal-case text-xl rounded-full">
+          <a
+            className="btn btn-ghost normal-case text-xl rounded-full"
+            href="/visastart"
+          >
             Виза в Сингапур
           </a>
-          <a className="btn btn-ghost normal-case text-xl rounded-full">
+          <a
+            className="btn btn-ghost normal-case text-xl rounded-full"
+            href="/services"
+          >
             Услуги
           </a>
-          <a className="btn btn-ghost normal-case text-xl rounded-full">
+          <a
+            className="btn btn-ghost normal-case text-xl rounded-full"
+            href="/visa-check"
+          >
             Статус заявки
           </a>
-          <a className="btn btn-ghost normal-case text-xl rounded-full">
+          <a
+            className="btn btn-ghost normal-case text-xl rounded-full"
+            href="/about"
+          >
             О нас
           </a>
-          <a className="btn btn-ghost normal-case text-xl rounded-full">
+          <a
+            className="btn btn-ghost normal-case text-xl rounded-full"
+            href="/contact"
+          >
             Контакты
           </a>
         </div>

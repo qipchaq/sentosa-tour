@@ -83,7 +83,7 @@ const AboutUs = () => {
               </li>
             ))}
           </ul>
-          <Button text="Наши услуги" />
+          <Button text="Наши услуги" link="services" />
         </div>
 
         <div className="flex justify-end rounded-2xl overflow-hidden">

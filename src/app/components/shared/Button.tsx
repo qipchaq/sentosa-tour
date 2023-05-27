@@ -1,8 +1,19 @@
-const Button = ({ text }: { text: string }) => {
+import Link from 'next/link';
+
+const Button = ({
+  text,
+  link = 'visastart',
+}: {
+  text: string;
+  link?: string;
+}) => {
   return (
-    <button className="btn rounded-full btn-primary hover:btn-primary-focus text-base-100 text-sm sm:text-base w-fit">
+    <Link
+      href={`/${link}`}
+      className="btn rounded-full btn-primary hover:btn-primary-focus text-base-100 text-sm sm:text-base w-fit"
+    >
       {text}
-    </button>
+    </Link>
   );
 };
 

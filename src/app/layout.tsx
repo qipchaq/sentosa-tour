@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-white text-base dark:bg-neutral-900 text-neutral-900 dark:text-neutral-200 min-h-screen ${roboto.className}`}
+        className={`bg-white text-base text-neutral-900 min-h-screen ${roboto.className}`}
       >
         <Header />
         {children}
