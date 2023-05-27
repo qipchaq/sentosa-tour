@@ -12,6 +12,7 @@ import {
 } from '../components/shared/Icons';
 import { faGgCircle } from '@fortawesome/free-brands-svg-icons';
 import Button from '../components/shared/Button';
+import Calculator from './components/Calculator/Calculator';
 
 const REQIURED_DOCS = [
   {
@@ -78,6 +79,7 @@ const VisaStart = () => {
         </div>
       </Section>
       <div className="divider px-4 lg:container py-4 lg:py-5 m-auto"></div>
+      <Calculator />
       <Section>
         <div className="max-w-[768px] mx-auto">
           <h2 className="font-semibold text-2xl text-neutral-800">
