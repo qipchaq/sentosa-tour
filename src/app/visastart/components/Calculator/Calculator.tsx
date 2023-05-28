@@ -10,7 +10,7 @@ const initialValue = {
   total: 60,
   term: false,
   hotel: false,
-  visitType: null,
+  visitType: '',
 };
 
 const reducer = (state: typeof initialValue, action: any) => {
@@ -20,7 +20,7 @@ const reducer = (state: typeof initialValue, action: any) => {
       return !state.term
         ? { ...state, total: (state.total += 40), term: true }
         : { ...state, term: true };
-    case 'termStandart':
+    case 'termStandard':
       return state.term
         ? { ...state, total: (state.total -= 40), term: false }
         : { ...state, term: false };
@@ -33,7 +33,7 @@ const reducer = (state: typeof initialValue, action: any) => {
         ? { ...state, total: (state.total += 20), hotel: false }
         : state;
     case 'oneVisit':
-      if (state.visitType === null) {
+      if (state.visitType === '') {
         return { ...state, total: (state.total += 20), visitType: 'oneVisit' };
       } else if (state.visitType === 'twoVisits') {
         return { ...state, total: (state.total -= 20), visitType: 'oneVisit' };
@@ -41,7 +41,7 @@ const reducer = (state: typeof initialValue, action: any) => {
         return { ...state, total: (state.total -= 40), visitType: 'oneVisit' };
       } else return state;
     case 'twoVisits':
-      if (state.visitType === null) {
+      if (state.visitType === '') {
         return { ...state, total: (state.total += 40), visitType: 'twoVisits' };
       } else if (state.visitType === 'oneVisit') {
         return { ...state, total: (state.total += 20), visitType: 'twoVisits' };
@@ -49,7 +49,7 @@ const reducer = (state: typeof initialValue, action: any) => {
         return { ...state, total: (state.total -= 20), visitType: 'twoVisits' };
       } else return state;
     case 'manyVisits':
-      if (state.visitType === null) {
+      if (state.visitType === '') {
         return {
           ...state,
           total: (state.total += 60),
@@ -76,7 +76,7 @@ const reducer = (state: typeof initialValue, action: any) => {
 const Calculator = () => {
   const handleVisaCalculation = (e: React.ChangeEvent<HTMLSelectElement>) => {
     e.target.value === 'termUrgent' && dispatch({ type: e.target.value });
-    e.target.value === 'termStandart' && dispatch({ type: e.target.value });
+    e.target.value === 'termStandard' && dispatch({ type: e.target.value });
     e.target.value === 'hotelCompany' && dispatch({ type: e.target.value });
     e.target.value === 'hotelOwn' && dispatch({ type: e.target.value });
     e.target.value === 'oneVisit' && dispatch({ type: e.target.value });
@@ -141,7 +141,7 @@ const Calculator = () => {
                   <option value="termUrgent">
                     Срочная виза (1-2 рабочих дня)
                   </option>
-                  <option value="termStandart">
+                  <option value="termStandard">
                     Стандартная виза (3-4 рабочих дня)
                   </option>
                 </select>
