@@ -2,14 +2,91 @@
 
 import Section from '@/app/components/shared/Section';
 import Image from 'next/image';
-import React from 'react';
+import React, { useReducer, useState } from 'react';
 import calculatorGif from '../../../../../public/assets/images/calculator-anim.gif';
 import calculator from '../../../../../public/assets/images/calculator.png';
 
+const initialValue = {
+  total: 60,
+  term: false,
+  hotel: false,
+  visitType: null,
+};
+
+const reducer = (state: typeof initialValue, action: any) => {
+  console.log(action.type);
+  switch (action.type) {
+    case 'termUrgent':
+      return !state.term
+        ? { ...state, total: (state.total += 40), term: true }
+        : { ...state, term: true };
+    case 'termStandart':
+      return state.term
+        ? { ...state, total: (state.total -= 40), term: false }
+        : { ...state, term: false };
+    case 'hotelCompany':
+      return !state.hotel
+        ? { ...state, total: (state.total -= 20), hotel: true }
+        : state;
+    case 'hotelOwn':
+      return state.hotel
+        ? { ...state, total: (state.total += 20), hotel: false }
+        : state;
+    case 'oneVisit':
+      if (state.visitType === null) {
+        return { ...state, total: (state.total += 20), visitType: 'oneVisit' };
+      } else if (state.visitType === 'twoVisits') {
+        return { ...state, total: (state.total -= 20), visitType: 'oneVisit' };
+      } else if (state.visitType === 'manyVisits') {
+        return { ...state, total: (state.total -= 40), visitType: 'oneVisit' };
+      } else return state;
+    case 'twoVisits':
+      if (state.visitType === null) {
+        return { ...state, total: (state.total += 40), visitType: 'twoVisits' };
+      } else if (state.visitType === 'oneVisit') {
+        return { ...state, total: (state.total += 20), visitType: 'twoVisits' };
+      } else if (state.visitType === 'manyVisits') {
+        return { ...state, total: (state.total -= 20), visitType: 'twoVisits' };
+      } else return state;
+    case 'manyVisits':
+      if (state.visitType === null) {
+        return {
+          ...state,
+          total: (state.total += 60),
+          visitType: 'manyVisits',
+        };
+      } else if (state.visitType === 'oneVisit') {
+        return {
+          ...state,
+          total: (state.total += 40),
+          visitType: 'manyVisits',
+        };
+      } else if (state.visitType === 'twoVisits') {
+        return {
+          ...state,
+          total: (state.total += 20),
+          visitType: 'manyVisits',
+        };
+      } else return state;
+    default:
+      return state;
+  }
+};
+
 const Calculator = () => {
-  const handleVisaTerm = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleVisaCalculation = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    e.target.value === 'termUrgent' && dispatch({ type: e.target.value });
+    e.target.value === 'termStandart' && dispatch({ type: e.target.value });
+    e.target.value === 'hotelCompany' && dispatch({ type: e.target.value });
+    e.target.value === 'hotelOwn' && dispatch({ type: e.target.value });
+    e.target.value === 'oneVisit' && dispatch({ type: e.target.value });
+    e.target.value === 'twoVisits' && dispatch({ type: e.target.value });
+    e.target.value === 'manyVisits' && dispatch({ type: e.target.value });
     console.log(e.target.value);
   };
+
+  const [visaTotalPrice, dispatch] = React.useReducer(reducer, initialValue);
+
   return (
     <Section>
       <div className="collapse collapse-arrow p-4 sm:p-6 bg-white border border-neutral-100 rounded-2xl hover:shadow-lg transition-shadow group">
@@ -51,17 +128,20 @@ const Calculator = () => {
                 </p>
                 <select
                   className="select select-bordered w-full max-w-xs rounded-2xl my-4"
-                  onChange={handleVisaTerm}
+                  onChange={handleVisaCalculation}
+                  value="default"
                 >
                   <option
+                    value="default"
                     disabled
-                    selected
                     className="h-11 block w-full text-sm rounded-2xl border-neutral-200 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 bg-white"
                   >
                     -Выберите срок оформления-
                   </option>
-                  <option value="true">Срочная виза (1-2 рабочих дня)</option>
-                  <option value="false">
+                  <option value="termUrgent">
+                    Срочная виза (1-2 рабочих дня)
+                  </option>
+                  <option value="termStandart">
                     Стандартная виза (3-4 рабочих дня)
                   </option>
                 </select>
@@ -72,41 +152,43 @@ const Calculator = () => {
                 </p>
                 <select
                   className="select select-bordered w-full max-w-xs rounded-2xl my-4"
-                  onChange={handleVisaTerm}
+                  onChange={handleVisaCalculation}
+                  value="default"
                 >
                   <option
                     disabled
-                    selected
+                    value="default"
                     className="h-11 block w-full text-sm rounded-2xl border-neutral-200 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 bg-white"
                   >
                     -Выберите как бронируете отель-
                   </option>
-                  <option value="true">Через нашу компанию</option>
-                  <option value="false">Самостоятельно</option>
+                  <option value="hotelCompany">Через нашу компанию</option>
+                  <option value="hotelOwn">Самостоятельно</option>
                 </select>
               </div>
               <div>
                 <p className="text-sm font-medium text-neutral-700">Тип визы</p>
                 <select
                   className="select select-bordered w-full max-w-xs rounded-2xl my-4"
-                  onChange={handleVisaTerm}
+                  onChange={handleVisaCalculation}
+                  value="default"
                 >
                   <option
                     disabled
-                    selected
+                    value="default"
                     className="h-11 block w-full text-sm rounded-2xl border-neutral-200 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 bg-white"
                   >
                     -Выберите тип визы-
                   </option>
-                  <option value="0">Однократный въезд</option>
-                  <option value="1">Двухкратный въезд</option>
-                  <option value="2">Многократный въезд</option>
+                  <option value="oneVisit">Однократный въезд</option>
+                  <option value="twoVisits">Двухкратный въезд</option>
+                  <option value="manyVisits">Многократный въезд</option>
                 </select>
               </div>
             </div>
             <div className="px-24 py-10">
               <p className="text-neutral-700 text-sm md:text-base py-5 border-y-2">
-                Стоимость визы 60
+                Стоимость визы {visaTotalPrice.total}
               </p>
             </div>
           </div>

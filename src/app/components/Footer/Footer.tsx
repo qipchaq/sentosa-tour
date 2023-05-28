@@ -19,12 +19,16 @@ const Footer = () => {
             <Link
               href="https://www.facebook.com/sentosa_tours"
               target="blank"
-              className="mt-2"
+              className="mt-2 flex items-center gap-1"
             >
               <FontAwesomeIcon icon={faFacebookF} className="w-4 mr-2" />
               <span>Facebook</span>
             </Link>
-            <Link href="https://www.instagram.com/sentosatours/" target="blank">
+            <Link
+              href="https://www.instagram.com/sentosatours/"
+              target="blank"
+              className="flex items-center gap-1"
+            >
               <FontAwesomeIcon icon={faInstagram} className="w-4 mr-2" />
               <span>Instagram</span>
             </Link>
