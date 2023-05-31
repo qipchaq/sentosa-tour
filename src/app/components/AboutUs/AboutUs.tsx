@@ -19,12 +19,12 @@ const SERVICES = [
 const AboutUs = () => {
   return (
     <section className="flex flex-col pt-10 lg:pt-16 lg:pb-16 gap-16">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col lg:flex-row space-y-14 lg:space-y-0 lg:space-x-10 items-center relative text-center lg:text-left">
         <div className="flex flex-col gap-10 flex-1">
-          <h2 className="font-medium text-neutral-800 dark:text-neutral-200 text-4xl md:text-5xl xl:text-5xl !leading-[114%]">
+          <h2 className="text-3xl !leading-tight font-semibold text-neutral-800 md:text-4xl xl:text-5xl dark:text-neutral-100">
             👋 О нас
           </h2>
-          <p className="block text-base xl:text-lg text-neutral-600 dark:text-neutral-400">
+          <p className="block text-base xl:text-lg text-neutral-600">
             Наша компания является стратегическим партнером миграционной службы
             Сингапура со штатом лицензированных гидов. В арсенале имеются
             интересные туры от групповых до эксклюзивных индивидуальных, включая
@@ -41,7 +41,7 @@ const AboutUs = () => {
         незабываемым событием!
       </h3>
 
-      <div className="flex justify-evenly">
+      <div className="flex flex-col gap-3 md:flex-row md:justify-center md:gap-28">
         <div className="card w-56 bg-neutral-100 shadow-xl self-center">
           <div className="card-body">
             <p className="text-3xl font-semibold text-info">32400+</p>
@@ -68,12 +68,12 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <div className="flex justify-center items-center gap-16 mt-14">
-        <div className="flex flex-col gap-10 max-w-[405px]">
+      <div className="relative flex flex-col justify-center items-center lg:flex-row lg:items-center max-w-screen-xl container pb-16 lg:pb-28 ">
+        <div className="flex flex-col gap-6 items-center text-center flex-shrink-0 mb-10 lg:text-start lg:mb-0 lg:items-start lg:mr-10 lg:w-1/3 lg:self-start">
           <p className="font-semibold text-2xl text-neutral-800 dark:text-neutral-200">
             Оказываем качественные и доступные услуги
           </p>
-          <ul>
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-1">
             {SERVICES.map((service, i) => (
               <li key={i} className="flex gap-4 items-center">
                 <CheckIcon />
