@@ -5,7 +5,7 @@ import mainSection from '../../../../public/assets/images/main-section.png';
 
 const MainSection = () => {
   return (
-    <section className="flex justify-between items-center pt-10 lg:pt-16 lg:pb-16 gap-16">
+    <section className="justify-between items-center pt-10 lg:pt-16 lg:pb-16 gap-16 flex flex-col lg:flex-row lg:items-center">
       <div className="flex flex-col gap-10 flex-1">
         <h1 className="font-medium text-neutral-800 dark:text-neutral-200 text-4xl md:text-5xl xl:text-5xl !leading-[114%] max-w-[568px]">
           Авторизированный Партнер Иммиграционного Офиса Сингапура
