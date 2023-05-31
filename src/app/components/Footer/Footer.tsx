@@ -119,7 +119,7 @@ const Footer = () => {
                 <a
                   rel="noreferrer"
                   className="text-neutral-6000 hover:text-black"
-                  href="/contact"
+                  href="/contacts"
                   target=""
                 >
                   Телефон: +6581810090
@@ -129,7 +129,7 @@ const Footer = () => {
                 <a
                   rel="noreferrer"
                   className="text-neutral-6000 hover:text-black"
-                  href="/contact"
+                  href="/contacts"
                   target=""
                 >
                   Email: office@sentosatour.com
@@ -139,7 +139,7 @@ const Footer = () => {
                 <a
                   rel="noreferrer"
                   className="text-neutral-6000 hover:text-black"
-                  href="/contact"
+                  href="/contacts"
                   target=""
                 >
                   Часы работы: Пн. - Вс. / 9:00AM - 8:00PM <br />

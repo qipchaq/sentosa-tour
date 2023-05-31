@@ -36,7 +36,7 @@ const Header = () => {
           </a>
           <a
             className="btn btn-ghost normal-case text-xl rounded-full"
-            href="/contact"
+            href="/contacts"
           >
             Контакты
           </a>
