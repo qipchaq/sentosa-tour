@@ -10,7 +10,7 @@ const Button = ({
   return (
     <Link
       href={`/${link}`}
-      className="btn rounded-full btn-primary hover:btn-primary-focus text-base-100 text-sm sm:text-base w-fit"
+      className="btn rounded-full btn-primary hover:btn-primary-focus text-base-100 text-sm sm:text-base w-fit normal-case"
     >
       {text}
     </Link>

@@ -11,9 +11,6 @@ const roboto = Roboto({
 export const metadata = {
   title: 'Sentosa tours',
   description: 'Визы в Сингапур',
-  // icons: {
-  //   favicon: '/assets/images/logo.svg',
-  // },
   icons: {
     icon: { url: '/assets/images/logo.png', type: 'image/png' },
   },
