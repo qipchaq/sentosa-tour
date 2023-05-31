@@ -24,13 +24,7 @@ const Header = () => {
           </a>
           <a
             className="btn btn-ghost normal-case text-xl rounded-full"
-            href="/services"
-          >
-            Услуги
-          </a>
-          <a
-            className="btn btn-ghost normal-case text-xl rounded-full"
-            href="/visa-check"
+            href="/visacheck"
           >
             Статус заявки
           </a>
