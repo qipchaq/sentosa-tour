@@ -60,19 +60,25 @@ const SERVICES = [
 const Services = () => {
   return (
     <section className="pt-10 lg:pt-16 lg:pb-16">
-      <div className="mb-12 text-neutral-900">
-        <h2 className="font-medium text-neutral-800 text-4xl md:text-5xl xl:text-5xl !leading-[114%]">
+      <div className="mb-[60px] sm:mb-12 text-neutral-900">
+        <h2 className="text-3xl md:text-4xl font-semibold text-neutral-800 dark:text-neutral-200">
           Популярные услуги
         </h2>
-        <p className="block text-base xl:text-lg text-neutral-600 mt-3">
+        <p className="mt-2 md:mt-3 font-normal block text-base sm:text-xl text-neutral-500 dark:text-neutral-400">
           Услуги пользующиеся наибольшим спросом
         </p>
       </div>
       <div className="relative">
         <Swiper
           spaceBetween={30}
-          slidesPerView={5}
+          slidesPerView={1}
           modules={[Navigation]}
+          breakpoints={{
+            370: { slidesPerView: 2 },
+            580: { slidesPerView: 3 },
+            900: { slidesPerView: 4 },
+            1536: { slidesPerView: 5 },
+          }}
           navigation={{
             prevEl: '.prev',
             nextEl: '.next',
@@ -104,7 +110,7 @@ const Services = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="absolute -top-24 right-0 mt-4 px-3 flex items-center text-neutral-900">
+        <div className="absolute -top-16 sm:-top-24 right-0 mt-4 px-3 flex items-center text-neutral-900">
           <button className="prev w-10 h-10 mr-[6px] bg-white border border-neutral-200 rounded-full flex items-center justify-center hover:border-neutral-300 focus:outline-none">
             <FontAwesomeIcon icon={faChevronLeft} />
           </button>
