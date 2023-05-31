@@ -44,15 +44,15 @@ const AboutUs = () => {
       <div className="flex justify-evenly">
         <div className="card w-56 bg-neutral-100 shadow-xl self-center">
           <div className="card-body">
-            <p className="text-3xl font-semibold text-primary-600">32400+</p>
+            <p className="text-3xl font-semibold text-info">32400+</p>
             <p className="font-semibold text-neutral-600 dark:text-neutral-400">
               Оформленных виз
             </p>
           </div>
         </div>
-        <div className="card w-56 bg-neutral-100 shadow-xl self-center">
+        <div className="card w-[230px] bg-neutral-100 shadow-xl self-center">
           <div className="card-body">
-            <p className="text-3xl font-semibold text-primary-600">56000+</p>
+            <p className="text-3xl font-semibold text-info">56000+</p>
             <p className="font-semibold text-neutral-600 dark:text-neutral-400">
               Счастливых туристов
             </p>
@@ -60,7 +60,7 @@ const AboutUs = () => {
         </div>
         <div className="card w-56 bg-neutral-100 shadow-xl self-center">
           <div className="card-body">
-            <p className="text-3xl font-semibold text-primary-600">16+</p>
+            <p className="text-3xl font-semibold text-info">16+</p>
             <p className="font-semibold text-neutral-600 dark:text-neutral-400">
               Опыта работы
             </p>
