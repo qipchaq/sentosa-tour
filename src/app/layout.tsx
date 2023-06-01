@@ -12,7 +12,7 @@ export const metadata = {
   title: 'Sentosa tours',
   description: 'Визы в Сингапур',
   icons: {
-    icon: { url: '/assets/images/logo.png', type: 'image/png' },
+    icon: { url: '/assets/images/logo.svg', type: 'image/svg' },
   },
   openGraph: {
     title: 'Sentosa tours',
@@ -21,7 +21,7 @@ export const metadata = {
     siteName: 'Sentosa tours',
     images: [
       {
-        url: 'https://www.sentosatours.kz/assets/images/logo.png',
+        url: 'https://www.sentosatours.kz/assets/images/logo.svg',
         width: 200,
         height: 200,
       },

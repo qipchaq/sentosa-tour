@@ -36,7 +36,7 @@ const Confidentiality = () => {
           <li>
             <p>
               <span className="font-semibold mb-1">
-                Collection, Utilization, and Disclosure of Personal Data:{' '}
+                Collection, Utilization, and Disclosure of Personal Data:
               </span>
             </p>
             <p>
@@ -91,13 +91,13 @@ const Confidentiality = () => {
             <p>
               (j) any other incidental business purposes related to or in
               connection with the above.
-              <p>We may disclose your personal data:</p>
-              <div className="px-3 flex flex-col gap-1">
-                <p>
+              <span>We may disclose your personal data:</span>
+              <span className="px-3 flex flex-col gap-1">
+                <span>
                   (a) when required for fulfilling obligations related to our
                   provision of goods or services you requested; or
-                </p>
-                <p>
+                </span>
+                <span>
                   (b) to third-party service providers, agents, and other
                   organizations we have engaged to perform any of the functions
                   listed in clause 5 above on our behalf. The purposes listed
@@ -105,8 +105,8 @@ const Confidentiality = () => {
                   changed or ended, for a reasonable period thereafter
                   (including, where applicable, a period that allows us to
                   enforce our rights under any contract with you).
-                </p>
-              </div>
+                </span>
+              </span>
             </p>
           </li>
           <li>
