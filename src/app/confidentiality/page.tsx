@@ -16,18 +16,18 @@ const Confidentiality = () => {
               </span>
             </p>
             <p>
-              "Customer" refers to an individual who (a) has inquired about our
-              products or services through any means, or (b) may have, or has,
-              entered into an agreement with us for the supply of any products
-              or services; and "personal data" denotes data, whether accurate or
-              not, about a customer who can be identified either: (a) from that
-              data or (b) from that data combined with other information we
-              possess or are likely to possess. Examples of personal data we may
-              collect from you, based on your interactions with us, include your
-              name, identification details (e.g., NRIC number), contact
-              information (e.g., address, email address, phone number),
-              nationality, gender, date of birth, marital status, photos,
-              audio-visual material, employment details, and financial
+              &quot;Customer&quot; refers to an individual who (a) has inquired
+              about our products or services through any means, or (b) may have,
+              or has, entered into an agreement with us for the supply of any
+              products or services; and &quot;personal data&quot; denotes data,
+              whether accurate or not, about a customer who can be identified
+              either: (a) from that data or (b) from that data combined with
+              other information we possess or are likely to possess. Examples of
+              personal data we may collect from you, based on your interactions
+              with us, include your name, identification details (e.g., NRIC
+              number), contact information (e.g., address, email address, phone
+              number), nationality, gender, date of birth, marital status,
+              photos, audio-visual material, employment details, and financial
               information (e.g., bank account details). Other terms used in this
               Notice are given the same meanings as those in the PDPA, where
               context permits.
@@ -42,7 +42,7 @@ const Confidentiality = () => {
             <p>
               We typically do not collect your personal data unless it is: (a)
               voluntarily provided by you or a third party authorized by you
-              (your "authorized representative"), after you or your
+              (your &quot;authorized representative&quot;), after you or your
               representative have been informed of the purposes for which the
               data will be used and have given written consent for its
               collection and use; or (b) when the collection and use of personal
@@ -119,7 +119,7 @@ const Confidentiality = () => {
               submit your request in writing or via email to our Data Protection
               Officer at the contact details provided below. Upon receiving your
               written request to withdraw consent, we may need a reasonable
-              amount of time (depending on the request's complexity and its
+              amount of time (depending on the request&apos;s complexity and its
               impact on our relationship with you) to process your request and
               inform you of the consequences, including any legal consequences
               that may affect your rights and liabilities to us. Generally, we
@@ -139,7 +139,7 @@ const Confidentiality = () => {
           <li>
             <p>
               <span className="font-semibold mb-1">
-                Access to and Correction of Personal Data:{' '}
+                Access to and Correction of Personal Data:
               </span>
             </p>
             <p>

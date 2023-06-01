@@ -70,14 +70,6 @@ const Footer = () => {
               </li>
               <li className="my-2">
                 <a
-                  href="/contacts"
-                  className="text-neutral-6000 hover:text-black active"
-                >
-                  Контакты
-                </a>
-              </li>
-              <li className="my-2">
-                <a
                   href="/terms"
                   className="text-neutral-6000 hover:text-black active"
                 >
@@ -90,6 +82,14 @@ const Footer = () => {
                   className="text-neutral-6000 hover:text-black active"
                 >
                   Политика конфиденциальности
+                </a>
+              </li>
+              <li className="my-2">
+                <a
+                  href="/contacts"
+                  className="text-neutral-6000 hover:text-black active"
+                >
+                  Контакты
                 </a>
               </li>
             </ul>
