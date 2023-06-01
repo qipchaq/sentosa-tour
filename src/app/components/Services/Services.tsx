@@ -1,58 +1,58 @@
-'use client';
+"use client";
 
-import React from 'react';
-import serviceVisa from '../../../../public/assets/images/service-visa.png';
-import serviceTour from '../../../../public/assets/images/service-tour.png';
-import serviceTransfer from '../../../../public/assets/images/service-transfer.png';
-import serviceHotel from '../../../../public/assets/images/service-hotel.jpeg';
-import serviceTickets from '../../../../public/assets/images/service-tickets.jpg';
-import serviceEducation from '../../../../public/assets/images/service-education.jpg';
-import serviceRent from '../../../../public/assets/images/service-rent.png';
-import Image from 'next/image';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React from "react";
+import serviceVisa from "../../../../public/assets/images/service-visa.png";
+import serviceTour from "../../../../public/assets/images/service-tour.png";
+import serviceTransfer from "../../../../public/assets/images/service-transfer.png";
+import serviceHotel from "../../../../public/assets/images/service-hotel.jpeg";
+import serviceTickets from "../../../../public/assets/images/service-tickets.jpg";
+import serviceEducation from "../../../../public/assets/images/service-education.jpg";
+import serviceRent from "../../../../public/assets/images/service-rent.png";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
 import {
   faChevronLeft,
   faChevronRight,
-} from '@fortawesome/free-solid-svg-icons';
-import 'swiper/css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Navigation } from 'swiper';
-import 'swiper/css/navigation';
+} from "@fortawesome/free-solid-svg-icons";
+import "swiper/css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Navigation } from "swiper";
+import "swiper/css/navigation";
 
 const SERVICES = [
   {
-    title: 'Виза в Сингапур',
-    text: 'Помощь в оформлении визы позволит вам сэкономить личное время и деньги.',
+    title: "Виза в Сингапур",
+    text: "Помощь в оформлении визы позволит вам сэкономить личное время и деньги.",
     img: serviceVisa,
   },
   {
-    title: 'Экскурсии',
-    text: 'Частные гиды и индивидуальные туры. Русские гиды - переводчики. Груповые экскурсии.',
+    title: "Экскурсии",
+    text: "Частные гиды и индивидуальные туры. Русские гиды - переводчики. Груповые экскурсии.",
     img: serviceTour,
   },
   {
-    title: 'Трансфер',
-    text: 'Комфортабельный транспорт. Встреча в аэропорту с именной табличкой, помощь с багажом.',
+    title: "Трансфер",
+    text: "Комфортабельный транспорт. Встреча в аэропорту с именной табличкой, помощь с багажом.",
     img: serviceTransfer,
   },
   {
-    title: 'Бронирование отелей',
-    text: 'Лучшие номера в отелях, оформление документов, лучшие условия.',
+    title: "Бронирование отелей",
+    text: "Лучшие номера в отелях, оформление документов, лучшие условия.",
     img: serviceHotel,
   },
   {
-    title: 'Бронирование билетов',
-    text: 'Укажите даты прилеты и вылета, а все остальное сделаем мы.',
+    title: "Бронирование билетов",
+    text: "Укажите даты прилеты и вылета, а все остальное сделаем мы.",
     img: serviceTickets,
   },
   {
-    title: 'Обучение в Сингапуре',
-    text: 'Помощь в оформлении документов для обучения в Сингапуре.',
+    title: "Обучение в Сингапуре",
+    text: "Помощь в оформлении документов для обучения в Сингапуре.",
     img: serviceEducation,
   },
   {
-    title: 'Аренда автомобиля',
-    text: 'Все что Вам нужно - это написать нам. Все остальное мы сделаем сами.',
+    title: "Аренда автомобиля",
+    text: "Все что Вам нужно - это написать нам. Все остальное мы сделаем сами.",
     img: serviceRent,
   },
 ];
@@ -61,10 +61,10 @@ const Services = () => {
   return (
     <section className="pt-10 lg:pt-16 lg:pb-16">
       <div className="mb-[60px] sm:mb-12 text-neutral-900">
-        <h2 className="text-3xl md:text-4xl font-semibold text-neutral-800 dark:text-neutral-200">
+        <h2 className="text-3xl md:text-4xl font-semibold text-neutral-800">
           Популярные услуги
         </h2>
-        <p className="mt-2 md:mt-3 font-normal block text-base sm:text-xl text-neutral-500 dark:text-neutral-400">
+        <p className="mt-2 md:mt-3 font-normal block text-base sm:text-xl text-neutral-500">
           Услуги пользующиеся наибольшим спросом
         </p>
       </div>
@@ -80,8 +80,8 @@ const Services = () => {
             1536: { slidesPerView: 5 },
           }}
           navigation={{
-            prevEl: '.prev',
-            nextEl: '.next',
+            prevEl: ".prev",
+            nextEl: ".next",
           }}
         >
           {SERVICES.map((service, i) => (
@@ -92,8 +92,8 @@ const Services = () => {
                     src={service.img}
                     alt="mainSection"
                     style={{
-                      objectFit: 'cover',
-                      height: '168px',
+                      objectFit: "cover",
+                      height: "168px",
                     }}
                     className="rounded-2xl overflow-hidden"
                   />

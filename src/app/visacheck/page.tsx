@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Section from '../components/shared/Section';
+import React, { useState } from "react";
+import Section from "../components/shared/Section";
 
 const VisaCheck = () => {
-  const [applicationNumber, setApplicationNumber] = useState('');
+  const [applicationNumber, setApplicationNumber] = useState("");
 
   return (
     <Section>
@@ -22,7 +22,7 @@ const VisaCheck = () => {
           <label className="font-semibold">
             Введите уникальный номер заявки:
             <input
-              className="input input-bordered mt-3 w-full rounded-full focus:outline-none focus:ring-2"
+              className="input input-bordered mt-3 w-full rounded-full focus:outline-none focus:ring-2 bg-white"
               type="text"
               onChange={(e) => setApplicationNumber(e.target.value)}
               value={applicationNumber}
@@ -30,7 +30,7 @@ const VisaCheck = () => {
           </label>
           <button
             disabled={!applicationNumber.length}
-            className="btn rounded-full btn-primary h-auto inline-flex items-center justify-center transition-colors text-sm sm:text-base font-medium px-4 py-3 sm:px-6 disabled:btn-primary-disabled disabled:text-neutral-500 bg-primary-6000 hover:bg-primary-700 text-neutral-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000"
+            className="btn rounded-full btn-info hover:btn-primary-focus text-sm sm:text-base normal-case text-neutral-50"
           >
             Проверить
           </button>

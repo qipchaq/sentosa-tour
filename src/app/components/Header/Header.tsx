@@ -1,29 +1,29 @@
-import Image from 'next/image';
-import React from 'react';
-import logo from '../../../../public/assets/images/logo.svg';
-import Button from '../shared/Button';
-import Link from 'next/link';
+import Image from "next/image";
+import React from "react";
+import logo from "../../../../public/assets/images/logo.svg";
+import Button from "../shared/Button";
+import Link from "next/link";
 
 const LINKS = [
   {
-    title: 'Главная',
-    href: '/',
+    title: "Главная",
+    href: "/",
   },
   {
-    title: 'Виза в Сингапур',
-    href: '/visastart',
+    title: "Виза в Сингапур",
+    href: "/visastart",
   },
   {
-    title: 'Статус заявки',
-    href: '/visacheck',
+    title: "Статус заявки",
+    href: "/visacheck",
   },
   {
-    title: 'О нас',
-    href: '/about',
+    title: "О нас",
+    href: "/about",
   },
   {
-    title: 'Контакты',
-    href: '/contacts',
+    title: "Контакты",
+    href: "/contacts",
   },
 ];
 
@@ -67,7 +67,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 right-0"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52 right-0"
             >
               {LINKS.map((link, i) => (
                 <li key={i}>

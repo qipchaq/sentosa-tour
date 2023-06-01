@@ -1,7 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Section from '../components/shared/Section';
+import React from "react";
+import Section from "../components/shared/Section";
+import Button from "../components/shared/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookF, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const Contacts = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -48,7 +51,7 @@ const Contacts = () => {
               </span>
             </div>
             <div>
-              <h3 className="grid grid-cols-[20px_1fr] gap-3 items-start uppercase font-semibold text-sm dark:text-neutral-200 tracking-wider">
+              <h3 className="grid grid-cols-[20px_1fr] gap-3 items-start uppercase font-semibold text-sm tracking-wider">
                 <span className="h-[22px] relative bottom-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +70,7 @@ const Contacts = () => {
                 </span>
                 <span className="self-end">EMAIL</span>
               </h3>
-              <span className="block mt-2 ml-2 text-neutral-500 dark:text-neutral-400">
+              <span className="block mt-2 ml-2 text-neutral-500">
                 office@sentosatour.com
               </span>
             </div>
@@ -126,7 +129,7 @@ const Contacts = () => {
                   rel="noopener noreferrer"
                   title="Facebook"
                 >
-                  <i className="lab la-facebook-square"></i>
+                  <FontAwesomeIcon icon={faFacebookF} className="w-4 mr-2" />
                 </a>
                 <a
                   className="block"
@@ -135,7 +138,7 @@ const Contacts = () => {
                   rel="noopener noreferrer"
                   title="Instagram"
                 >
-                  <i className="lab la-instagram"></i>
+                  <FontAwesomeIcon icon={faInstagram} className="w-4 mr-2" />
                 </a>
               </nav>
             </div>
@@ -152,7 +155,7 @@ const Contacts = () => {
                 <input
                   placeholder="Иван Иванов"
                   type="text"
-                  className="mt-2 input input-bordered w-full rounded-full focus:outline-none focus:ring-2"
+                  className="mt-2 input input-bordered w-full rounded-full focus:outline-none focus:ring-2 bg-white"
                   name="name"
                   value=""
                 />
@@ -166,7 +169,7 @@ const Contacts = () => {
                 </label>
                 <input
                   type="tel"
-                  className="mt-2 input input-bordered w-full rounded-full focus:outline-none focus:ring-2"
+                  className="mt-2 input input-bordered w-full rounded-full focus:outline-none focus:ring-2 bg-white"
                   placeholder="+7 (123) 456-78-90"
                   name="tel"
                   value=""
@@ -174,14 +177,14 @@ const Contacts = () => {
               </label>
               <label className="block relative">
                 <label
-                  className="nc-Label text-sm font-medium text-neutral-700 dark:text-neutral-300 "
+                  className="nc-Label text-sm font-medium text-neutral-700 "
                   data-nc-id="Label"
                 >
                   Email
                 </label>
                 <input
                   type="email"
-                  className="mt-2 input input-bordered w-full rounded-full focus:outline-none focus:ring-2"
+                  className="mt-2 input input-bordered w-full rounded-full focus:outline-none focus:ring-2 bg-white"
                   placeholder="example@example.com"
                   name="email"
                   value=""
@@ -216,7 +219,7 @@ const Contacts = () => {
                           htmlFor="file-upload"
                           className="relative cursor-pointer rounded-md font-medium text-primary-6000 hover:text-primary-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary-500"
                         >
-                          <span>Загрузить файл</span>
+                          <span className="text-info">Загрузить файл</span>
                           <input
                             id="file-upload"
                             className="sr-only block"
@@ -246,12 +249,7 @@ const Contacts = () => {
                 ></textarea>
               </label>
               <div>
-                <button
-                  className="btn rounded-full btn-primary relative h-auto inline-flex items-center justify-center transition-colors text-sm sm:text-base font-medium px-4 py-3 sm:px-6 disabled:bg-opacity-40 bg-primary-6000 hover:bg-primary-700 text-neutral-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000"
-                  type="submit"
-                >
-                  Отправить сообщение
-                </button>
+                <Button text="Отправить сообщение" />
               </div>
             </form>
           </div>

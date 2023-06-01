@@ -1,8 +1,8 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 const Button = ({
   text,
-  link = 'visastart',
+  link = "visastart",
 }: {
   text: string;
   link?: string;
@@ -10,7 +10,7 @@ const Button = ({
   return (
     <Link
       href={`/${link}`}
-      className="btn rounded-full btn-primary hover:btn-primary-focus text-base-100 text-sm sm:text-base w-fit normal-case"
+      className="btn rounded-full btn-info hover:btn-primary-focus text-sm sm:text-base w-fit normal-case text-neutral-50"
     >
       {text}
     </Link>
