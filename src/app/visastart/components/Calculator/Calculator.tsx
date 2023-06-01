@@ -194,7 +194,7 @@ const Calculator = () => {
                 <select
                   className="select select-bordered w-full max-w-xs rounded-2xl my-4 bg-white font-normal"
                   onChange={handleVisaCalculation}
-                  value="default"
+                  value={visaTotalPrice.visitType}
                 >
                   <option
                     disabled
