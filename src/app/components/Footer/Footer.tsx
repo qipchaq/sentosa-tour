@@ -46,7 +46,7 @@ const Footer = () => {
               </li>
               <li className="my-2">
                 <a
-                  href="#"
+                  href="/blog"
                   className="text-neutral-6000 hover:text-black active"
                 >
                   Блог
@@ -54,7 +54,7 @@ const Footer = () => {
               </li>
               <li className="my-2">
                 <a
-                  href="#"
+                  href="/visastart"
                   className="text-neutral-6000 hover:text-black active"
                 >
                   Виза в Сингапур
@@ -62,7 +62,7 @@ const Footer = () => {
               </li>
               <li className="my-2">
                 <a
-                  href="#"
+                  href="/about"
                   className="text-neutral-6000 hover:text-black active"
                 >
                   О нас
@@ -70,15 +70,7 @@ const Footer = () => {
               </li>
               <li className="my-2">
                 <a
-                  href="#"
-                  className="text-neutral-6000 hover:text-black active"
-                >
-                  Экскурсии
-                </a>
-              </li>
-              <li className="my-2">
-                <a
-                  href="#"
+                  href="/contacts"
                   className="text-neutral-6000 hover:text-black active"
                 >
                   Контакты
@@ -86,7 +78,7 @@ const Footer = () => {
               </li>
               <li className="my-2">
                 <a
-                  href="#"
+                  href="/terms"
                   className="text-neutral-6000 hover:text-black active"
                 >
                   Пользовательское соглашение
@@ -94,7 +86,7 @@ const Footer = () => {
               </li>
               <li className="my-2">
                 <a
-                  href="#"
+                  href="/confidentiality"
                   className="text-neutral-6000 hover:text-black active"
                 >
                   Политика конфиденциальности
