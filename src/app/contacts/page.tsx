@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Section from '../components/shared/Section';
-import Button from '../components/shared/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import {
@@ -18,13 +17,12 @@ const INIT_VALUES = {
   name: '',
   phone: '',
   email: '',
-  files: [],
+  // files: [] as File[],
   message: '',
 };
 
 const Contacts = () => {
   const [userData, setUserData] = React.useState(INIT_VALUES);
-  // console.log(userData);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -32,16 +30,18 @@ const Contacts = () => {
     >
   ) => {
     e.preventDefault();
+    const { id, name, value } = e.target;
 
-    if (e.target.id === 'files') {
-      const file = e.target as HTMLInputElement;
-      const files = userData.files;
-      setUserData((prev) => ({
-        ...prev,
-        [file.id]: [...files, ...(file.files ? Array.from(file.files) : [])],
-      }));
-    }
-    setUserData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    // if (id === 'files') {
+    //   const { files } = e.target as HTMLInputElement;
+    //   const newFiles = files ? Array.from(files) : [];
+    //   setUserData((prev) => ({
+    //     ...prev,
+    //     [id]: [...prev[id], ...newFiles],
+    //   }));
+    // } else {
+    setUserData((prev) => ({ ...prev, [name]: value }));
+    // }
   };
 
   const handleFileClear = () => {
@@ -53,9 +53,10 @@ const Contacts = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const req = await sendMail(userData);
+    await sendMail(userData);
     console.log(userData);
   };
+
   return (
     <Section>
       <h2 className="my-10 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-800 justify-center">
@@ -179,7 +180,7 @@ const Contacts = () => {
                   value={userData.email}
                 />
               </label>
-              <label className="block relative">
+              {/* <label className="block relative">
                 <label
                   className="nc-Label text-sm font-medium text-neutral-700"
                   data-nc-id="Label"
@@ -224,7 +225,7 @@ const Contacts = () => {
                     </div>
                   </div>
                 </div>
-              </label>
+              </label> */}
               <label className="block relative">
                 <label
                   className="nc-Label text-sm font-medium text-neutral-700"
