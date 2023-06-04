@@ -70,6 +70,7 @@ const Contacts = () => {
         }
       );
   };
+
   return (
     <Section>
       <h2 className="my-10 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-800 justify-center">
