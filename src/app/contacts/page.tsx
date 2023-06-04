@@ -1,8 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Section from '../components/shared/Section';
-import Button from '../components/shared/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import {
@@ -12,7 +11,7 @@ import {
   PhoneIcon,
   SocialIcon,
 } from '../components/shared/Icons';
-import { sendMail } from '../../../service/api/sendMail';
+import emailjs from '@emailjs/browser';
 
 const INIT_VALUES = {
   name: '',
@@ -23,8 +22,8 @@ const INIT_VALUES = {
 };
 
 const Contacts = () => {
+  const form = useRef<any>();
   const [userData, setUserData] = React.useState(INIT_VALUES);
-  // console.log(userData);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -53,8 +52,23 @@ const Contacts = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const req = await sendMail(userData);
-    console.log(userData);
+    const formElement = e.target as HTMLFormElement;
+    await emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID!,
+        form.current,
+        process.env.NEXT_PUBLIC_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          alert('email sent successfully');
+          formElement.reset();
+        },
+        (error) => {
+          alert('error sending email');
+        }
+      );
   };
   return (
     <Section>
@@ -130,7 +144,11 @@ const Contacts = () => {
             </div>
           </div>
           <div>
-            <form className="grid grid-cols-1 gap-6" onSubmit={handleSubmit}>
+            <form
+              className="grid grid-cols-1 gap-6"
+              ref={form}
+              onSubmit={handleSubmit}
+            >
               <label className="block relative">
                 <label
                   className="nc-Label text-sm font-medium text-neutral-700"
@@ -178,52 +196,6 @@ const Contacts = () => {
                   onChange={handleChange}
                   value={userData.email}
                 />
-              </label>
-              <label className="block relative">
-                <label
-                  className="nc-Label text-sm font-medium text-neutral-700"
-                  data-nc-id="Label"
-                >
-                  Прикрепить файл
-                </label>
-                <div className="mt-5 ">
-                  <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-neutral-300 border-dashed rounded-md">
-                    <div className="space-y-1 text-center">
-                      <FileIcon />
-                      <div className="flex flex-col gap-1 justify-center text-sm text-neutral-6000">
-                        <label
-                          htmlFor="file-upload"
-                          className="relative cursor-pointer rounded-md font-medium text-primary-6000 hover:text-primary-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary-500"
-                        >
-                          <span className="text-info cursor-pointer rounded-md font-medium hover:text-primary-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary-500">
-                            {userData.files.length
-                              ? `Вы загрузили ${userData.files.length} файлов`
-                              : 'Загрузить файл'}
-                          </span>
-                          <input
-                            id="files"
-                            className="sr-only block"
-                            type="file"
-                            accept=".png,.jpg,.pdf,.gif"
-                            multiple
-                            onChange={(e) => handleChange(e)}
-                          />
-                        </label>
-                      </div>
-                      {userData.files.length > 0 && (
-                        <span
-                          className="block cursor-pointer rounded-md font-medium text-info hover:text-primary focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary-500"
-                          onClick={handleFileClear}
-                        >
-                          Очистить
-                        </span>
-                      )}
-                      <p className="text-xs text-neutral-500">
-                        PNG, JPG, PDF, GIF
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </label>
               <label className="block relative">
                 <label
