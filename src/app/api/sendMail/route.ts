@@ -1,6 +1,6 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+// import { NextApiRequest, NextApiResponse } from 'next';
 
-export async function POST(request: NextApiRequest, response: NextApiResponse) {
+export async function POST(request: Request, response: Response) {
   return new Response('Hello, Next.js!');
   console.log(request);
   //   const body = request.body;
