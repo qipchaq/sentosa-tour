@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Section from '../components/shared/Section';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
@@ -10,6 +10,7 @@ import {
   FileIcon,
   PhoneIcon,
   SocialIcon,
+  SpinnerIcon,
 } from '../components/shared/Icons';
 import emailjs from '@emailjs/browser';
 
@@ -19,6 +20,8 @@ const INIT_VALUES = {
   email: '',
   files: [],
   message: '',
+  status: 'init',
+  error: '',
 };
 
 const Contacts = () => {
@@ -43,16 +46,10 @@ const Contacts = () => {
     setUserData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleFileClear = () => {
-    setUserData((prev) => ({
-      ...prev,
-      files: [],
-    }));
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formElement = e.target as HTMLFormElement;
+    setUserData((prev) => ({ ...prev, status: 'sending' }));
     await emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_SERVICE_ID!,
@@ -60,15 +57,37 @@ const Contacts = () => {
         form.current,
         process.env.NEXT_PUBLIC_PUBLIC_KEY
       )
-      .then(
-        (result) => {
-          alert('email sent successfully');
-          formElement.reset();
-        },
-        (error) => {
-          alert('error sending email');
-        }
+      .then((result) => {
+        setUserData((prev) => ({ ...prev, status: 'success' }));
+      })
+      .catch((error) => {
+        setUserData((prev) => ({ ...prev, status: 'error', error: error }));
+      })
+      .finally(() => {
+        formElement.reset();
+      });
+  };
+
+  useEffect(() => {
+    if (userData.status === 'success') {
+      setTimeout(() => {
+        setUserData(INIT_VALUES);
+      }, 3000);
+    }
+  }, [userData.status]);
+
+  const toast = () => {
+    if (userData.status === 'success') {
+      return (
+        <div className="alert alert-success">
+          <span>Message sent successfully.</span>
+        </div>
       );
+    } else if (userData.status === 'error') {
+      <div className="alert alert-error">
+        <span>Ошибка при отправке. Попробуйте еще раз.</span>
+      </div>;
+    }
   };
 
   return (
@@ -217,6 +236,7 @@ const Contacts = () => {
                   type="submit"
                   className="btn btn-info rounded-full text-white"
                 >
+                  {userData.status === 'sending' && <SpinnerIcon />}
                   Отправить сообщение
                 </button>
               </div>
@@ -224,6 +244,7 @@ const Contacts = () => {
           </div>
         </div>
       </div>
+      <div className="toast toast-start">{toast()}</div>
     </Section>
   );
 };
