@@ -25,7 +25,7 @@ const MobileMenu = ({ isOpen, setIsOpen }: Props) => {
     <div
       className={`${
         isOpen ? 'flex' : 'hidden'
-      } absolute top-0 right-0 w-screen h-screen z-50 lg:hidden flex-row-reverse bg-neutral-900 bg-opacity-50`}
+      } fixed top-0 right-0 w-screen h-screen z-50 lg:hidden flex-row-reverse bg-neutral-900 bg-opacity-50`}
       onClick={onBodyClick}
     >
       <div
