@@ -1,5 +1,6 @@
 'use client';
 
+import GoogleAnalytics from '../../service/utils/GoogleAnalytics';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import MobileMenu from './components/MobileMenu/MobileMenu';
@@ -13,19 +14,23 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: 'Sentosa tours',
-  description: 'Визы в Сингапур',
+  title:
+    'Sentosa tour - авторизированный партнер иммиграционного офиса Сингапура',
+  description:
+    'Sentosa tour предлагает оформить визу в Сингапур онлайн. Для граждан России, СНГ, Грузии, Туркменистана, Молдовы, Не граждан Латвии и Эстонии',
   icons: {
-    icon: { url: '/assets/images/logo.svg', type: 'image/svg' },
+    icon: { url: '/assets/images/logo.png', type: 'image/png' },
   },
   openGraph: {
-    title: 'Sentosa tours',
-    description: 'Визы в Сингапур',
+    title:
+      'Sentosa tour - авторизированный партнер иммиграционного офиса Сингапура',
+    description:
+      'Sentosa tour предлагает оформить визу в Сингапур онлайн. Для граждан России, СНГ, Грузии, Туркменистана, Молдовы, Не граждан Латвии и Эстонии',
     url: 'https://www.sentosatours.kz/',
     siteName: 'Sentosa tours',
     images: [
       {
-        url: 'https://www.sentosatours.kz/assets/images/logo.svg',
+        url: 'https://www.sentosatours.kz/assets/images/logo.png',
         width: 200,
         height: 200,
       },
@@ -44,6 +49,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <GoogleAnalytics />
       <body
         className={`bg-white text-base text-neutral-900 min-h-screen ${roboto.className}`}
       >

@@ -1,19 +1,19 @@
-import React from "react";
-import Button from "../shared/Button";
-import Image from "next/image";
-import aboutUs from "../../../../public/assets/images/about-hero.png";
-import aboutUsSecond from "../../../../public/assets/images/about-hero-2.jpg";
-import { CheckIcon } from "../shared/Icons";
+import React from 'react';
+import Button from '../shared/Button';
+import Image from 'next/image';
+import aboutUs from '../../../../public/assets/images/about-hero.png';
+import aboutUsSecond from '../../../../public/assets/images/about-hero-2.jpg';
+import { CheckIcon } from '../shared/Icons';
 
 const SERVICES = [
-  "Оформление визы",
-  "Экскурсии",
-  "Бронирование отелей",
-  "Бронирование билетов",
-  "Трансферы",
-  "Обучение в Сингапуре",
-  "Аренда автомобиля",
-  "Сопровождение на встречах",
+  'Оформление визы',
+  'Экскурсии',
+  'Бронирование отелей',
+  'Бронирование билетов',
+  'Трансферы',
+  'Обучение в Сингапуре',
+  'Аренда автомобиля',
+  'Сопровождение на встречах',
 ];
 
 const AboutUs = () => {
@@ -77,7 +77,7 @@ const AboutUs = () => {
               </li>
             ))}
           </ul>
-          <Button text="Наши услуги" link="services" />
+          {/* <Button text="Наши услуги" link="services" /> */}
         </div>
 
         <div className="flex justify-end rounded-2xl overflow-hidden">
