@@ -1,33 +1,18 @@
-import Image from "next/image";
-import React from "react";
-import logo from "../../../../public/assets/images/logo.svg";
-import Button from "../shared/Button";
-import Link from "next/link";
+'use client';
 
-const LINKS = [
-  {
-    title: "Главная",
-    href: "/",
-  },
-  {
-    title: "Виза в Сингапур",
-    href: "/visastart",
-  },
-  {
-    title: "Статус заявки",
-    href: "/visacheck",
-  },
-  {
-    title: "О нас",
-    href: "/about",
-  },
-  {
-    title: "Контакты",
-    href: "/contacts",
-  },
-];
+import Image from 'next/image';
+import React, { Dispatch, SetStateAction, useState } from 'react';
+import logo from '../../../../public/assets/images/logo.svg';
+import Button from '../shared/Button';
+import Link from 'next/link';
+import { LINKS } from '../../../../service/utils/constants';
+import { BurgerIcon } from '../shared/Icons';
 
-const Header = () => {
+type Props = {
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+};
+
+const Header = ({ setIsOpen }: Props) => {
   return (
     <header className="sticky bg-white top-0 w-full left-0 right-0 z-40 shadow-sm">
       <div className="px-4 lg:container py-4 lg:py-5 relative flex justify-between items-center m-auto">
@@ -49,32 +34,10 @@ const Header = () => {
           <Button text="Оформить визу" />
         </div>
         <div className="flex lg:hidden items-center">
-          <div className="dropdown">
+          <div className="dropdown" onClick={() => setIsOpen(true)}>
             <label tabIndex={0} className="btn btn-ghost btn-square">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="inline-block w-5 h-5 stroke-current"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
+              <BurgerIcon />
             </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52 right-0"
-            >
-              {LINKS.map((link, i) => (
-                <li key={i}>
-                  <Link href={link.href}>{link.title}</Link>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
