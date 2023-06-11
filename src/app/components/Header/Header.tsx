@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import logo from '../../../../public/assets/images/logo.svg';
 import Button from '../shared/Button';
 import Link from 'next/link';
@@ -12,9 +12,11 @@ import MobileMenu from '../MobileMenu/MobileMenu';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  isOpen
-    ? document.body.classList.add('overflow-hidden')
-    : document.body.classList.remove('overflow-hidden');
+  useEffect(() => {
+    isOpen
+      ? document.body.classList.add('overflow-hidden')
+      : document.body.classList.remove('overflow-hidden');
+  }, [isOpen]);
 
   return (
     <>
