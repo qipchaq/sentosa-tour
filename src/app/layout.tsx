@@ -26,7 +26,7 @@ export const metadata = {
     siteName: 'Sentosa tours',
     images: [
       {
-        url: 'https://www.sentosatours.kz/assets/images/logo.png',
+        url: '/assets/images/logo.png',
         width: 200,
         height: 200,
       },
