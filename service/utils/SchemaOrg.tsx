@@ -24,10 +24,12 @@ const schema = {
 
 export default function SchemaOrg() {
   return (
-    <Script
-      id="schema"
-      key="product-jsonld"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <>
+      <Script
+        id="schema"
+        type="product-jsonld"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+    </>
   );
 }
