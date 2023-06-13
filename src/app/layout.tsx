@@ -1,5 +1,5 @@
 import GoogleAnalytics from '../../service/utils/GoogleAnalytics';
-import { metaData } from '../../service/utils/metaData';
+// import { metaData } from '../../service/utils/metaData';
 import { schema } from '../../service/utils/schema';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
@@ -12,9 +12,34 @@ const roboto = Roboto({
   subsets: ['cyrillic', 'latin'],
 });
 
-export const metadata = metaData;
+const metaData = {
+  title:
+    'Sentosa tour - авторизированный партнер иммиграционного офиса Сингапура',
+  description:
+    'Sentosa tour предлагает оформить визу в Сингапур онлайн. Для граждан России, СНГ, Грузии, Туркменистана, Молдовы, Не граждан Латвии и Эстонии',
+  icons: {
+    icon: { url: '/assets/images/logo.png', type: 'image/png' },
+  },
+  openGraph: {
+    title:
+      'Sentosa tour - авторизированный партнер иммиграционного офиса Сингапура',
+    description:
+      'Sentosa tour предлагает оформить визу в Сингапур онлайн. Для граждан России, СНГ, Грузии, Туркменистана, Молдовы, Не граждан Латвии и Эстонии',
+    url: 'https://www.sentosatours.kz/',
+    siteName: 'Sentosa tours',
+    images: [
+      {
+        url: '/assets/images/logo.png',
+        width: 200,
+        height: 200,
+      },
+    ],
+    locale: 'ru-RU',
+    type: 'website',
+  },
+};
 
-console.log(JSON.stringify(schema));
+export const metadata = metaData;
 
 export default function RootLayout({
   children,
