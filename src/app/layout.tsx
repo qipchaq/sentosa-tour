@@ -1,5 +1,6 @@
 import GoogleAnalytics from '../../service/utils/GoogleAnalytics';
-import { metaData } from '../../service/utils/MetaData';
+import { metaData } from '../../service/utils/metaData';
+import { schema } from '../../service/utils/schema';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import './globals.css';
@@ -13,6 +14,8 @@ const roboto = Roboto({
 
 export const metadata = metaData;
 
+console.log(JSON.stringify(schema));
+
 export default function RootLayout({
   children,
 }: {
@@ -20,6 +23,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          key="product-jsonld"
+        />
+      </Head>
       <GoogleAnalytics />
       <body
         className={`bg-white text-base text-neutral-900 min-h-screen ${roboto.className}`}
