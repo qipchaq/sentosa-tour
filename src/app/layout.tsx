@@ -1,8 +1,8 @@
+import Head from 'next/head';
 import GoogleAnalytics from '../../service/utils/GoogleAnalytics';
 import SchemaOrg from '../../service/utils/SchemaOrg';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
-// import { metaData } from './components/shared/metaData';
 import './globals.css';
 import { Roboto } from 'next/font/google';
 
@@ -38,8 +38,6 @@ export const metaData = {
   },
 };
 
-export const metadata = metaData;
-
 export default function RootLayout({
   children,
 }: {
@@ -47,6 +45,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        <meta
+          property="og:image"
+          content="https://inthepocket.tech/api/og-image?name=Next.js&stage=adopt"
+        />
+      </Head>
       <body
         className={`bg-white text-base text-neutral-900 min-h-screen ${roboto.className}`}
       >
