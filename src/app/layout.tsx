@@ -28,7 +28,7 @@ export const metaData = {
     siteName: 'Sentosa tours',
     images: [
       {
-        url: '/assets/images/logo.png',
+        url: 'https://inthepocket.tech/api/og-image?name=Next.js&stage=adopt',
         width: 200,
         height: 200,
       },
