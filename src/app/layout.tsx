@@ -11,7 +11,7 @@ const roboto = Roboto({
   subsets: ['cyrillic', 'latin'],
 });
 
-export const metaData = {
+export const metadata = {
   title:
     'Sentosa tour - авторизированный партнер иммиграционного офиса Сингапура',
   description:
