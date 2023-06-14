@@ -27,7 +27,7 @@ export default function SchemaOrg() {
     <>
       <Script
         id="schema"
-        type="product-jsonld"
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
     </>
