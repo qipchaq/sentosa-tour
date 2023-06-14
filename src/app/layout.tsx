@@ -45,12 +45,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <meta
-          property="og:image"
-          content="https://inthepocket.tech/api/og-image?name=Next.js&stage=adopt"
-        />
-      </Head>
       <body
         className={`bg-white text-base text-neutral-900 min-h-screen ${roboto.className}`}
       >
