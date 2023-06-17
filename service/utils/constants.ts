@@ -19,4 +19,8 @@ export const LINKS = [
     title: 'Контакты',
     href: '/contacts',
   },
+  {
+    title: 'Блог',
+    href: '/blogs',
+  },
 ];

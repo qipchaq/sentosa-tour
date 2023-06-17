@@ -8,7 +8,7 @@ const VisaStart = () => {
   return (
     <div>
       <Section>
-        <div className="flex gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
           <div className="flex-1">
             <Link href="./blogs/blog">
               <div>

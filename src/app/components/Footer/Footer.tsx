@@ -46,7 +46,7 @@ const Footer = () => {
               </li>
               <li className="my-2">
                 <a
-                  href="/blog"
+                  href="/blogs"
                   className="text-neutral-6000 hover:text-black active"
                 >
                   Блог
