@@ -26,13 +26,6 @@ export const metadata = {
       'Sentosa tour предлагает оформить визу в Сингапур онлайн. Для граждан России, СНГ, Грузии, Туркменистана, Молдовы, Не граждан Латвии и Эстонии',
     url: 'https://www.sentosatours.kz/',
     siteName: 'Sentosa tours',
-    images: [
-      {
-        url: 'https://inthepocket.tech/api/og-image?name=Next.js&stage=adopt',
-        width: 200,
-        height: 200,
-      },
-    ],
     locale: 'ru-RU',
     type: 'website',
   },
