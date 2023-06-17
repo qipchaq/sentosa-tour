@@ -25,27 +25,6 @@ const schemaProduct = {
     priceCurrency: 'USD',
     availability: 'https://schema.org/Backorder',
   },
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        item: {
-          name: 'Визы в Сингапур',
-          '@id': 'https://www.sentosatour.kz/visastart',
-        },
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        item: {
-          name: 'Статус заявки',
-          '@id': 'https://www.sentosatour.kz/visacheck',
-        },
-      },
-    ],
-  },
 };
 
 export default function SchemaProduct() {
