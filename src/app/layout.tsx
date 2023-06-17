@@ -28,7 +28,7 @@ export const metadata = {
     siteName: 'Sentosa tours',
     images: [
       {
-        url: 'https://www.sentosatour.kz/api',
+        url: 'https://www.sentosatour.kz/assets/images/service-tickets.jpg',
         width: 200,
         height: 200,
       },
