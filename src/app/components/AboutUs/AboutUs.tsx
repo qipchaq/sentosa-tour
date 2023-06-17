@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../shared/Button';
 import Image from 'next/image';
 import aboutUs from '../../../../public/assets/images/about-hero.png';
 import aboutUsSecond from '../../../../public/assets/images/about-hero-2.jpg';
