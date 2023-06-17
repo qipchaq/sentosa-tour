@@ -1,10 +1,10 @@
-import Head from 'next/head';
 import GoogleAnalytics from '../../service/utils/GoogleAnalytics';
 import SchemaOrg from '../../service/utils/SchemaOrg';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import './globals.css';
 import { Roboto } from 'next/font/google';
+import SchemaProduct from '../../service/utils/SchemaProduct';
 
 const roboto = Roboto({
   weight: ['400', '500', '700'],
@@ -52,6 +52,7 @@ export default function RootLayout({
         {children}
         <Footer />
       </body>
+      <SchemaProduct />
       <SchemaOrg />
       <GoogleAnalytics />
     </html>
