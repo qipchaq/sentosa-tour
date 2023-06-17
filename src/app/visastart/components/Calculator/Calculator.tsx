@@ -1,6 +1,6 @@
 'use client';
 
-import Section from '@/app/components/shared/Section';
+import Section from '@/src/app/components/shared/Section';
 import Image from 'next/image';
 import React, { useReducer, useState } from 'react';
 import calculatorGif from '../../../../../public/assets/images/calculator-anim.gif';
