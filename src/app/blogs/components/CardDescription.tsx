@@ -1,16 +1,21 @@
-import React from 'react';
+import React from "react";
 
-const CardDescription = () => {
+type Props = {
+  blog: {
+    id: string;
+    title: string;
+    url: string;
+    shortDescription: string;
+    text: string;
+  };
+};
+
+const CardDescription = ({ blog }: Props) => {
   return (
     <div className="flex flex-col h-full py-2">
-      <h4 className="block font-semibold text-base">
-        Введение в Сингапур: обзор города-государства
-      </h4>
+      <h4 className="block font-semibold text-base">{blog.title}</h4>
       <p className="hidden sm:block my-3 text-neutral-500">
-        Добро пожаловать в Сингапур: обзор города-государства для Казахстана
-        Если вы ищете захватывающее место для посещения, где современность
-        встречается с уникальной культурой, то Сингапур - идеальное место для
-        вас.
+        {blog.shortDescription}
       </p>
     </div>
   );

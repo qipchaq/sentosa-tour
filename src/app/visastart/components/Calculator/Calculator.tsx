@@ -1,93 +1,93 @@
-'use client';
+"use client";
 
-import Section from '@/src/app/components/shared/Section';
-import Image from 'next/image';
-import React, { useReducer, useState } from 'react';
-import calculatorGif from '../../../../../public/assets/images/calculator-anim.gif';
-import calculator from '../../../../../public/assets/images/calculator.png';
+import Section from "@/src/app/components/shared/Section";
+import Image from "next/image";
+import React, { useReducer, useState } from "react";
+import calculatorGif from "../../../../../public/assets/images/calculator-anim.gif";
+import calculator from "../../../../../public/assets/images/calculator.png";
 
 const initialValue = {
   total: 60,
-  term: 'default',
-  hotel: 'default',
-  visitType: 'default',
+  term: "default",
+  hotel: "default",
+  visitType: "default",
 };
 
 type State = typeof initialValue;
 
 type Action =
-  | { type: 'termUrgent' }
-  | { type: 'termStandard' }
-  | { type: 'hotelCompany' }
-  | { type: 'hotelOwn' }
-  | { type: 'oneVisit' }
-  | { type: 'twoVisits' }
-  | { type: 'manyVisits' };
+  | { type: "termUrgent" }
+  | { type: "termStandard" }
+  | { type: "hotelCompany" }
+  | { type: "hotelOwn" }
+  | { type: "oneVisit" }
+  | { type: "twoVisits" }
+  | { type: "manyVisits" };
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
-    case 'termUrgent':
-      if (state.term !== 'termUrgent') {
-        return { ...state, total: (state.total += 40), term: 'termUrgent' };
+    case "termUrgent":
+      if (state.term !== "termUrgent") {
+        return { ...state, total: (state.total += 40), term: "termUrgent" };
       }
-    case 'termStandard':
-      return state.term === 'termUrgent'
+    case "termStandard":
+      return state.term === "termUrgent"
         ? {
             ...state,
             total: (state.total -= 40),
-            term: 'termStandard',
+            term: "termStandard",
           }
         : state;
-    case 'hotelCompany':
-      return state.term === 'hotelOwn' || state.term === 'default'
+    case "hotelCompany":
+      return state.term === "hotelOwn" || state.term === "default"
         ? {
             ...state,
             total: (state.total -= 20),
-            hotel: 'hotelCompany',
+            hotel: "hotelCompany",
           }
         : state;
-    case 'hotelOwn':
-      return state.term === 'hotelCompany' || state.term === 'default'
+    case "hotelOwn":
+      return state.term === "hotelCompany" || state.term === "default"
         ? {
             ...state,
             total: (state.total += 20),
-            hotel: 'hotelOwn',
+            hotel: "hotelOwn",
           }
         : state;
-    case 'oneVisit':
-      if (state.visitType === 'default') {
-        return { ...state, total: (state.total += 20), visitType: 'oneVisit' };
-      } else if (state.visitType === 'twoVisits') {
-        return { ...state, total: (state.total -= 20), visitType: 'oneVisit' };
-      } else if (state.visitType === 'manyVisits') {
-        return { ...state, total: (state.total -= 40), visitType: 'oneVisit' };
+    case "oneVisit":
+      if (state.visitType === "default") {
+        return { ...state, total: (state.total += 20), visitType: "oneVisit" };
+      } else if (state.visitType === "twoVisits") {
+        return { ...state, total: (state.total -= 20), visitType: "oneVisit" };
+      } else if (state.visitType === "manyVisits") {
+        return { ...state, total: (state.total -= 40), visitType: "oneVisit" };
       } else return state;
-    case 'twoVisits':
-      if (state.visitType === 'default') {
-        return { ...state, total: (state.total += 40), visitType: 'twoVisits' };
-      } else if (state.visitType === 'oneVisit') {
-        return { ...state, total: (state.total += 20), visitType: 'twoVisits' };
-      } else if (state.visitType === 'manyVisits') {
-        return { ...state, total: (state.total -= 20), visitType: 'twoVisits' };
+    case "twoVisits":
+      if (state.visitType === "default") {
+        return { ...state, total: (state.total += 40), visitType: "twoVisits" };
+      } else if (state.visitType === "oneVisit") {
+        return { ...state, total: (state.total += 20), visitType: "twoVisits" };
+      } else if (state.visitType === "manyVisits") {
+        return { ...state, total: (state.total -= 20), visitType: "twoVisits" };
       } else return state;
-    case 'manyVisits':
-      if (state.visitType === 'default') {
+    case "manyVisits":
+      if (state.visitType === "default") {
         return {
           ...state,
           total: (state.total += 60),
-          visitType: 'manyVisits',
+          visitType: "manyVisits",
         };
-      } else if (state.visitType === 'oneVisit') {
+      } else if (state.visitType === "oneVisit") {
         return {
           ...state,
           total: (state.total += 40),
-          visitType: 'manyVisits',
+          visitType: "manyVisits",
         };
-      } else if (state.visitType === 'twoVisits') {
+      } else if (state.visitType === "twoVisits") {
         return {
           ...state,
           total: (state.total += 20),
-          visitType: 'manyVisits',
+          visitType: "manyVisits",
         };
       } else return state;
     default:
@@ -97,14 +97,13 @@ const reducer = (state: State, action: Action): State => {
 
 const Calculator = () => {
   const handleVisaCalculation = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    e.target.value === 'termUrgent' && dispatch({ type: e.target.value });
-    e.target.value === 'termStandard' && dispatch({ type: e.target.value });
-    e.target.value === 'hotelCompany' && dispatch({ type: e.target.value });
-    e.target.value === 'hotelOwn' && dispatch({ type: e.target.value });
-    e.target.value === 'oneVisit' && dispatch({ type: e.target.value });
-    e.target.value === 'twoVisits' && dispatch({ type: e.target.value });
-    e.target.value === 'manyVisits' && dispatch({ type: e.target.value });
-    console.log(e.target.value);
+    e.target.value === "termUrgent" && dispatch({ type: e.target.value });
+    e.target.value === "termStandard" && dispatch({ type: e.target.value });
+    e.target.value === "hotelCompany" && dispatch({ type: e.target.value });
+    e.target.value === "hotelOwn" && dispatch({ type: e.target.value });
+    e.target.value === "oneVisit" && dispatch({ type: e.target.value });
+    e.target.value === "twoVisits" && dispatch({ type: e.target.value });
+    e.target.value === "manyVisits" && dispatch({ type: e.target.value });
   };
 
   const [visaTotalPrice, dispatch] = useReducer(reducer, initialValue);

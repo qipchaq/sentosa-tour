@@ -1,6 +1,14 @@
-import Section from '../../components/shared/Section';
+"use client";
+
+import Section from "../../components/shared/Section";
+
+import { useParams } from "next/navigation";
 
 const VisaStart = () => {
+  const { blog } = useParams();
+
+  console.log({ blog });
+
   return (
     <div>
       <Section>
