@@ -9,49 +9,49 @@ const VisaStart = () => {
   return (
     <Section>
       <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
-        <div className="flex-1">
-          <Link href="./blogs/blog">
-            {mainBlog.map((blog) => (
-              <Link key={blog.url} href="./blogs/blog">
-                <div>
-                  <Image
-                    src={blog.url}
-                    alt="Image"
-                    width={610}
-                    height={405}
-                    style={{ width: "100%" }}
-                    className="rounded-2xl overflow-hidden"
-                  />
-                </div>
-                <div className="mt-8 pr-10 flex flex-col">
-                  <h4 className="block font-semibold text-neutral-900 transition-colors text-lg sm:text-2xl">
-                    {blog.title}
-                  </h4>
-                  <p className="hidden sm:block mt-4 text-neutral-500">
-                    {blog.shortDescription}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </Link>
+        <div className="group relative flex flex-col h-full">
+          {mainBlog.map((blog) => (
+            <Link key={blog.url} href="./blogs/blog">
+              <div>
+                <Image
+                  src={blog.url}
+                  alt="Image"
+                  width={610}
+                  height={405}
+                  style={{ width: "100%" }}
+                  className="rounded-2xl overflow-hidden"
+                />
+              </div>
+              <div className="mt-8 pr-10 flex flex-col">
+                <h4 className="block font-semibold text-neutral-900 transition-colors text-lg sm:text-2xl">
+                  {blog.title}
+                </h4>
+                <p className="hidden sm:block mt-4 text-neutral-500">
+                  {blog.shortDescription}
+                </p>
+              </div>
+            </Link>
+          ))}
         </div>
-        <div className="flex-1">
-          <div className="grid gap-6 md:gap-8">
-            {sideBlogs.map((blog) => (
-              <Link key={blog.id} href="./blogs/blog">
-                <div className="flex">
-                  <CardDescription blog={blog} />
-                  <Image
-                    src={blog.url}
-                    alt="Image"
-                    width={200}
-                    height={200}
-                    className="rounded-2xl overflow-hidden shrink-0"
-                  />
-                </div>
-              </Link>
-            ))}
-          </div>
+        <div className="grid gap-6 md:gap-8">
+          {/* <div className="grid gap-6 md:gap-8"> */}
+          {sideBlogs.map((blog) => (
+            <Link
+              key={blog.id}
+              href="./blogs/blog"
+              className="relative flex gap-3"
+            >
+              <CardDescription blog={blog} />
+              <Image
+                src={blog.url}
+                alt="Image"
+                width={200}
+                height={200}
+                className="rounded-2xl overflow-hidden shrink-0"
+              />
+            </Link>
+          ))}
+          {/* </div> */}
         </div>
       </div>
     </Section>
