@@ -1,26 +1,26 @@
 export const LINKS = [
   {
-    title: 'Главная',
-    href: '/',
+    title: "Главная",
+    href: "/",
   },
   {
-    title: 'Виза в Сингапур',
-    href: '/visastart',
+    title: "Виза в Сингапур",
+    href: "/visastart",
   },
   {
-    title: 'Статус заявки',
-    href: '/visacheck',
+    title: "Статус заявки",
+    href: "/visacheck",
   },
   {
-    title: 'О нас',
-    href: '/about',
+    title: "Блог",
+    href: "/blogs",
   },
   {
-    title: 'Контакты',
-    href: '/contacts',
+    title: "О нас",
+    href: "/about",
   },
   {
-    title: 'Блог',
-    href: '/blogs',
+    title: "Контакты",
+    href: "/contacts",
   },
 ];

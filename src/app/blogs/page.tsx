@@ -38,7 +38,7 @@ const VisaStart = () => {
           {sideBlogs.map((blog) => (
             <Link
               key={blog.id}
-              href="./blogs/blog"
+              href={`./blogs/${blog.id}`}
               className="relative flex gap-3"
             >
               <CardDescription blog={blog} />
