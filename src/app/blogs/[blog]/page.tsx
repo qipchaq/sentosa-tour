@@ -34,7 +34,7 @@ const VisaStart = () => {
           width={1280}
           height={720}
           alt="Image"
-          className="rounded-xl mt-10"
+          className="rounded-xl mt-10 mx-auto"
         />
         <div className="!max-w-screen-md mx-auto">
           <p
