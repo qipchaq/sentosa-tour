@@ -7,16 +7,14 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 
 const VisaStart = () => {
-  const { blog } = useParams();
-
-  console.log(blog, sideBlogs);
+  const { blog: urlName } = useParams();
 
   let data;
 
-  if (blog === "blog") {
+  if (urlName === "mainpost") {
     data = mainBlog;
   } else {
-    data = sideBlogs.filter((el) => el.id === blog);
+    data = sideBlogs.filter((el) => el.urlName === urlName);
   }
 
   return (
@@ -31,7 +29,7 @@ const VisaStart = () => {
           </p>
         </div>
         <Image
-          src={data[0].url}
+          src={data[0].imagePath}
           width={1280}
           height={720}
           alt="Image"

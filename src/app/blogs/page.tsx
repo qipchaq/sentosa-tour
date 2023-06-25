@@ -11,10 +11,10 @@ const VisaStart = () => {
       <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
         <div className="group relative flex flex-col h-full">
           {mainBlog.map((blog) => (
-            <Link key={blog.url} href="./blogs/blog">
+            <Link key={blog.urlName} href={`./blogs/${blog.urlName}`}>
               <div>
                 <Image
-                  src={blog.url}
+                  src={blog.imagePath}
                   alt="Image"
                   width={610}
                   height={405}
@@ -34,16 +34,15 @@ const VisaStart = () => {
           ))}
         </div>
         <div className="grid gap-6 md:gap-8">
-          {/* <div className="grid gap-6 md:gap-8"> */}
           {sideBlogs.map((blog) => (
             <Link
               key={blog.id}
-              href={`./blogs/${blog.id}`}
+              href={`./blogs/${blog.urlName}`}
               className="relative flex gap-3"
             >
               <CardDescription blog={blog} />
               <Image
-                src={blog.url}
+                src={blog.imagePath}
                 alt="Image"
                 width={200}
                 height={200}
@@ -51,7 +50,6 @@ const VisaStart = () => {
               />
             </Link>
           ))}
-          {/* </div> */}
         </div>
       </div>
     </Section>

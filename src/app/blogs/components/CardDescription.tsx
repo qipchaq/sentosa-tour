@@ -3,8 +3,9 @@ import React from "react";
 type Props = {
   blog: {
     id: string;
+    urlName: string;
+    imagePath: string;
     title: string;
-    url: string;
     shortDescription: string;
     text: string;
   };
