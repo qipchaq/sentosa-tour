@@ -5,6 +5,7 @@ import Section from "../../components/shared/Section";
 
 import { useParams } from "next/navigation";
 import Image from "next/image";
+import SchemaBlog from "@/service/utils/SchemaBlog";
 
 const VisaStart = () => {
   const { blog: urlName } = useParams();
@@ -42,6 +43,7 @@ const VisaStart = () => {
           />
         </div>
       </Section>
+      <SchemaBlog />
     </div>
   );
 };
