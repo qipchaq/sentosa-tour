@@ -6,6 +6,7 @@ import Section from "../../components/shared/Section";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import SchemaBlog from "@/service/utils/SchemaBlog";
+import Gallery from "../../components/Gallery/Gallery";
 
 const VisaStart = () => {
   const { blog: urlName } = useParams();
@@ -19,7 +20,9 @@ const VisaStart = () => {
   }
 
   return (
-    <div>
+    <div className="lg:container m-auto">
+      <Gallery />
+      <div className="divider"></div>
       <Section>
         <div className="max-w-screen-md mx-auto space-y-5">
           <h2 className="text-neutral-900 font-semibold text-3xl md:text-4xl md:!leading-[120%] lg:text-4xl max-w-4xl ">
