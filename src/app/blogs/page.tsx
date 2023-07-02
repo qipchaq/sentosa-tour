@@ -1,20 +1,24 @@
 import Section from "../components/shared/Section";
 import Image from "next/image";
-import visaStart from "@/public/assets/images/visastart-hiro.jpg";
 import CardDescription from "./components/CardDescription";
 import Link from "next/link";
-import { mainBlog, sideBlogs } from "@/service/blogsData/blogData";
+import { getBlogsList } from "@/service/api/pocketBase";
 
-const VisaStart = () => {
+const Blogs = async () => {
+  const blogsList = await getBlogsList();
+
+  const mainBlog = blogsList.filter((blog) => blog.isMainBlog);
+  const secondaryBlogs = blogsList.filter((blog) => !blog.isMainBlog);
+
   return (
     <Section>
       <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
         <div className="group relative flex flex-col h-full">
           {mainBlog.map((blog) => (
-            <Link key={blog.urlName} href={`./blogs/${blog.urlName}`}>
+            <Link key={blog.id} href={`./blogs/${blog.pathName}-mainblog`}>
               <div>
                 <Image
-                  src={blog.imagePath}
+                  src={`http://127.0.0.1:8090/api/files/wgktmofvri6wpc3/${blog.id}/${blog.blogImage}`}
                   alt="Image"
                   width={610}
                   height={405}
@@ -27,22 +31,24 @@ const VisaStart = () => {
                   {blog.title}
                 </h4>
                 <p className="hidden sm:block mt-4 text-neutral-500">
-                  {blog.shortDescription}
+                  {blog.subtitle}
                 </p>
               </div>
             </Link>
           ))}
         </div>
         <div className="grid gap-6 md:gap-8">
-          {sideBlogs.map((blog) => (
+          {secondaryBlogs.map((blog) => (
             <Link
               key={blog.id}
-              href={`./blogs/${blog.urlName}`}
-              className="relative flex gap-3"
+              href={`./blogs/${blog.pathName}`}
+              className="relative flex gap-3 max-h-[192px]"
             >
-              <CardDescription blog={blog} />
+              <CardDescription
+                blog={{ title: blog.title, subtitle: blog.subtitle }}
+              />
               <Image
-                src={blog.imagePath}
+                src={`http://127.0.0.1:8090/api/files/wgktmofvri6wpc3/${blog.id}/${blog.blogImage}`}
                 alt="Image"
                 width={200}
                 height={200}
@@ -56,4 +62,4 @@ const VisaStart = () => {
   );
 };
 
-export default VisaStart;
+export default Blogs;
