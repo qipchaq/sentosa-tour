@@ -14,33 +14,24 @@ type Props = {
 const Blog = async ({ params: { blog: urlName } }: Props) => {
   const blogsList = await getBlogsList();
 
-  const mainBlog = blogsList.filter((blog) => blog.isMainBlog);
-  const secondaryBlogs = blogsList.filter((blog) => blog.pathName === urlName);
-
-  let blogData;
-
-  urlName.includes("mainblog")
-    ? (blogData = mainBlog)
-    : (blogData = secondaryBlogs);
+  const blogItem = blogsList.filter((blog) => blog.pathName === urlName)[0];
 
   return (
     <div className="lg:container m-auto">
-      <Gallery
-        blogId={blogData[0].id}
-        galleryImages={blogData[0].galleryImages}
-      />
+      {/* @ts-expect-error Server Component */}
+      {blogItem.field && <Gallery galleryId={blogItem.field} />}
       <div className="divider"></div>
       <Section>
         <div className="max-w-screen-md mx-auto space-y-5">
           <h2 className="text-neutral-900 font-semibold text-3xl md:text-4xl md:!leading-[120%] lg:text-4xl max-w-4xl ">
-            {blogData[0].title}
+            {blogItem.title}
           </h2>
           <p className="block text-base text-neutral-500 md:text-lg pb-1">
-            {blogData[0].subtitle}
+            {blogItem.subtitle}
           </p>
         </div>
         <Image
-          src={`http://127.0.0.1:8090/api/files/wgktmofvri6wpc3/${blogData[0].id}/${blogData[0].blogImage}`}
+          src={`https://weathered-haze-3071.fly.dev/api/files/4uq23x4ztbei3q9/${blogItem.id}/${blogItem.blogImage}`}
           width={1280}
           height={720}
           alt="Image"
@@ -48,7 +39,7 @@ const Blog = async ({ params: { blog: urlName } }: Props) => {
         />
         <div
           className="!max-w-screen-md mx-auto mt-12"
-          dangerouslySetInnerHTML={{ __html: blogData[0].contentText }}
+          dangerouslySetInnerHTML={{ __html: blogItem.contentText }}
         ></div>
       </Section>
       <SchemaBlog />

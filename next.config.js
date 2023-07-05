@@ -3,9 +3,9 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "127.0.0.1",
-        port: "8090",
+        protocol: "https",
+        hostname: "weathered-haze-3071.fly.dev",
+        port: "",
         pathname: "/api/files/**",
       },
     ],

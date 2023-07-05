@@ -1,23 +1,26 @@
 import Image from "next/image";
 import Section from "../shared/Section";
+import { getGalleryImages } from "@/service/api/pocketBase";
 
 type Props = {
+  galleryId: string;
   blogId: string;
-  galleryImages: string[];
 };
 
-const Gallery = ({ blogId, galleryImages }: Props) => {
+const Gallery = async ({ galleryId }: Props) => {
+  const galleryData = await getGalleryImages(galleryId);
+
   return (
     <Section>
       <div className="relative grid grid-cols-3 sm:grid-cols-4 gap-1 sm:gap-2">
-        {galleryImages.map((item, index) => {
+        {galleryData.images.map((image: string, index: number) => {
           return index === 0 ? (
             <div
-              key={blogId}
+              key={image}
               className="col-span-2 row-span-3 sm:row-span-2 relative rounded-md sm:rounded-xl overflow-hidden cursor-pointer "
             >
               <Image
-                src={`http://127.0.0.1:8090/api/files/wgktmofvri6wpc3/${blogId}/${item}`}
+                src={`https://weathered-haze-3071.fly.dev/api/files/${galleryData.collectionId}/${galleryData.id}/${image}`}
                 alt="Image"
                 width={636}
                 height={531}
@@ -27,12 +30,12 @@ const Gallery = ({ blogId, galleryImages }: Props) => {
             </div>
           ) : (
             <div
-              key={blogId}
+              key={image}
               className="relative rounded-md sm:rounded-xl overflow-hidden cursor-pointer"
             >
               <div className="aspect-w-4 aspect-h-3 sm:aspect-w-6 sm:aspect-h-5">
                 <Image
-                  src={`http://127.0.0.1:8090/api/files/wgktmofvri6wpc3/${blogId}/${item}`}
+                  src={`https://weathered-haze-3071.fly.dev/api/files/${galleryData.collectionId}/${galleryData.id}/${image}`}
                   alt="Image"
                   width={314}
                   height={262}

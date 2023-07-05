@@ -15,10 +15,10 @@ const Blogs = async () => {
       <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
         <div className="group relative flex flex-col h-full">
           {mainBlog.map((blog) => (
-            <Link key={blog.id} href={`./blogs/${blog.pathName}-mainblog`}>
+            <Link key={blog.id} href={`./blogs/${blog.pathName}`}>
               <div>
                 <Image
-                  src={`http://127.0.0.1:8090/api/files/wgktmofvri6wpc3/${blog.id}/${blog.blogImage}`}
+                  src={`https://weathered-haze-3071.fly.dev/api/files/4uq23x4ztbei3q9/${blog.id}/${blog.blogImage}`}
                   alt="Image"
                   width={610}
                   height={405}
@@ -48,7 +48,7 @@ const Blogs = async () => {
                 blog={{ title: blog.title, subtitle: blog.subtitle }}
               />
               <Image
-                src={`http://127.0.0.1:8090/api/files/wgktmofvri6wpc3/${blog.id}/${blog.blogImage}`}
+                src={`https://weathered-haze-3071.fly.dev/api/files/4uq23x4ztbei3q9/${blog.id}/${blog.blogImage}`}
                 alt="Image"
                 width={200}
                 height={200}
