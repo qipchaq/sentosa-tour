@@ -14,7 +14,7 @@ type Props = {
 export const generateMetadata = async ({
   params: { blog: urlName },
 }: Props) => {
-  await authPocketBase();
+  // await authPocketBase();
   const blogsList = await getBlogsList();
 
   const blogItem = blogsList.filter((blog) => blog.pathName === urlName)[0];
@@ -26,6 +26,7 @@ export const generateMetadata = async ({
 };
 
 const Blog = async ({ params: { blog: urlName } }: Props) => {
+  await authPocketBase();
   const blogsList = await getBlogsList();
 
   const blogItem = blogsList.filter((blog) => blog.pathName === urlName)[0];
