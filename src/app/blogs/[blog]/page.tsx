@@ -21,6 +21,21 @@ export const generateMetadata = async ({
   return {
     title: blogItem?.metaTitle,
     description: blogItem?.metaDescription,
+    openGraph: {
+      title: blogItem?.metaTitle,
+      description: blogItem?.metaDescription,
+      url: "https://www.sentosatours.kz/",
+      siteName: "Sentosa tours",
+      images: [
+        {
+          url: `https://weathered-haze-3071.fly.dev/api/files/4uq23x4ztbei3q9/${blogItem?.id}/${blogItem?.blogImage}`,
+          width: 200,
+          height: 200,
+        },
+      ],
+      locale: "ru-RU",
+      type: "website",
+    },
   };
 };
 
@@ -28,6 +43,8 @@ const Blog = async ({ params: { blog: urlName } }: Props) => {
   const blogsList = await getBlogsList();
 
   const blogItem = blogsList?.filter((blog) => blog.pathName === urlName)[0];
+
+  console.log(blogItem);
 
   return (
     <div className="lg:container m-auto">
@@ -57,7 +74,7 @@ const Blog = async ({ params: { blog: urlName } }: Props) => {
           ></div>
         )}
       </Section>
-      <SchemaBlog />
+      {/* <SchemaBlog blogItem={blogItem} /> */}
     </div>
   );
 };

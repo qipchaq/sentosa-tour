@@ -1,5 +1,3 @@
-"use client";
-
 import Script from "next/script";
 import { mainBlog } from "../blogsData/blogData";
 
@@ -37,7 +35,12 @@ const schemaBlog = {
   },
 };
 
-export default function SchemaBlog() {
+type Props = {
+  blogItem: any;
+};
+
+export default function SchemaBlog({ blogItem }: Props) {
+  console.log(blogItem);
   return (
     <>
       <Script
