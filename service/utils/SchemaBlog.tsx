@@ -1,7 +1,7 @@
 import Script from "next/script";
 
 type Props = {
-  blogItem: Blog | undefined;
+  blogItem: any;
 };
 
 export default function SchemaBlog({ blogItem }: Props) {
