@@ -3,7 +3,7 @@ import Section from "../../components/shared/Section";
 import Image from "next/image";
 import SchemaBlog from "@/service/utils/SchemaBlog";
 import Gallery from "../../components/Gallery/Gallery";
-import { authPocketBase, getBlogsList } from "@/service/api/pocketBase";
+import { getBlogsList } from "@/service/pocketbase/pocketbase";
 
 type Props = {
   params: {
@@ -11,22 +11,20 @@ type Props = {
   };
 };
 
-export const generateMetadata = async ({
-  params: { blog: urlName },
-}: Props) => {
-  // await authPocketBase();
-  const blogsList = await getBlogsList();
+// export const generateMetadata = async ({
+//   params: { blog: urlName },
+// }: Props) => {
+//   const blogsList = await getBlogsList();
 
-  const blogItem = blogsList.filter((blog) => blog.pathName === urlName)[0];
+//   const blogItem = blogsList.filter((blog) => blog.pathName === urlName)[0];
 
-  return {
-    title: blogItem.metaTitle,
-    description: blogItem.metaDescription,
-  };
-};
+//   return {
+//     title: blogItem.metaTitle,
+//     description: blogItem.metaDescription,
+//   };
+// };
 
 const Blog = async ({ params: { blog: urlName } }: Props) => {
-  await authPocketBase();
   const blogsList = await getBlogsList();
 
   const blogItem = blogsList.filter((blog) => blog.pathName === urlName)[0];

@@ -2,10 +2,9 @@ import Section from "../components/shared/Section";
 import Image from "next/image";
 import CardDescription from "./components/CardDescription";
 import Link from "next/link";
-import { authPocketBase, getBlogsList } from "@/service/api/pocketBase";
+import { getBlogsList } from "@/service/pocketbase/pocketbase";
 
 const Blogs = async () => {
-  await authPocketBase();
   const blogsList = await getBlogsList();
 
   const mainBlog = blogsList.filter((blog) => blog.isMainBlog);

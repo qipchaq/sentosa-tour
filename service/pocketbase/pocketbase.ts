@@ -12,12 +12,23 @@ export const authPocketBase = async () => {
 export const getBlogsList = async () => {
   // await authPocketBase();
   const data = await pb.collection("blogsList").getList(1, 50, {});
-
   return data.items;
 };
 
 export const getGalleryImages = async (id: string) => {
+  // await authPocketBase();
   const record = await pb.collection("galleryImages").getOne(id);
-
   return record;
 };
+
+// export const getBlog = async (pathName: string) => {
+//   await pb.collection("users").getFirstListItem(pathName);
+// };
+
+// export const getBlogsList = async () => {
+//   export const getBlogsList = async () => {
+//     // await authPocketBase();
+//     const data = await pb.collection("blogsList").getList(1, 50, {});
+//     return data.items;
+//   };
+// };

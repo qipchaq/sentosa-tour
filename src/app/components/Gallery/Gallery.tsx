@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Section from "../shared/Section";
-import { getGalleryImages } from "@/service/api/pocketBase";
+import { getGalleryImages } from "@/service/pocketbase/pocketbase";
 
 type Props = {
   galleryId: string;
