@@ -11,28 +11,28 @@ type Props = {
   };
 };
 
-// export const generateMetadata = async ({
-//   params: { blog: urlName },
-// }: Props) => {
-//   const blogsList = await getBlogsList();
-
-//   const blogItem = blogsList.filter((blog) => blog.pathName === urlName)[0];
-
-//   return {
-//     title: blogItem.metaTitle,
-//     description: blogItem.metaDescription,
-//   };
-// };
-
-const Blog = async ({ params: { blog: urlName } }: Props) => {
+export const generateMetadata = async ({
+  params: { blog: urlName },
+}: Props) => {
   const blogsList = await getBlogsList();
 
-  const blogItem = blogsList.filter((blog) => blog.pathName === urlName)[0];
+  const blogItem = blogsList?.filter((blog) => blog.pathName === urlName)[0];
+
+  return {
+    title: blogItem?.metaTitle,
+    description: blogItem?.metaDescription,
+  };
+};
+
+const Blog = async ({ params: { blog: urlName } }: Props) => {
+  // const blogsList = await getBlogsList();
+
+  // const blogItem = blogsList.filter((blog) => blog.pathName === urlName)[0];
 
   return (
     <div className="lg:container m-auto">
-      {/* @ts-expect-error Server Component */}
-      {blogItem.field && <Gallery galleryId={blogItem.field} />}
+      @ts-expect-error Server Component
+      {/* {blogItem.field && <Gallery galleryId={blogItem.field} />}
       <div className="divider"></div>
       <Section>
         <div className="max-w-screen-md mx-auto space-y-5">
@@ -55,7 +55,7 @@ const Blog = async ({ params: { blog: urlName } }: Props) => {
           dangerouslySetInnerHTML={{ __html: blogItem.contentText }}
         ></div>
       </Section>
-      <SchemaBlog />
+      <SchemaBlog /> */}
     </div>
   );
 };
