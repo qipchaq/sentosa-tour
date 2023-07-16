@@ -4,6 +4,8 @@ type Blog = {
   collectionName: string;
   contentText: string;
   contentText: string;
+  created: string;
+  updated: string;
   field: string;
   id: string;
   isMainBlog: boolean;

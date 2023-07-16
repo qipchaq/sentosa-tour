@@ -74,7 +74,7 @@ const Blog = async ({ params: { blog: urlName } }: Props) => {
           ></div>
         )}
       </Section>
-      {/* <SchemaBlog blogItem={blogItem} /> */}
+      <SchemaBlog blogItem={blogItem} />
     </div>
   );
 };
