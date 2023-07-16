@@ -11,8 +11,13 @@ export const authPocketBase = async () => {
 
 export const getBlogsList = async () => {
   // await authPocketBase();
-  const data = await pb.collection("blogsList").getList(1, 50, {});
-  return data.items;
+  try {
+    const data = await pb.collection("blogsList").getList(1, 50, {});
+    // console.log(data);
+    return data.items;
+  } catch (error: any) {
+    console.log(error);
+  }
 };
 
 export const getGalleryImages = async (id: string) => {
