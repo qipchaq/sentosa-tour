@@ -1,7 +1,8 @@
 import Script from "next/script";
+import { Record } from "pocketbase";
 
 type Props = {
-  blogItem: any;
+  blogItem: Record;
 };
 
 export default function SchemaBlog({ blogItem }: Props) {

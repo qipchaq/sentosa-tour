@@ -44,8 +44,6 @@ const Blog = async ({ params: { blog: urlName } }: Props) => {
 
   const blogItem = blogsList?.filter((blog) => blog.pathName === urlName)[0];
 
-  console.log(blogItem);
-
   return (
     <div className="lg:container m-auto">
       {/* @ts-expect-error Server Component */}

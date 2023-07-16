@@ -13,7 +13,7 @@ export const getBlogsList = async () => {
   try {
     const data = await pb.collection("blogsList").getList(1, 50, {});
     return data.items;
-  } catch (error: any) {
+  } catch (error) {
     console.log(error);
   }
 };
@@ -22,7 +22,7 @@ export const getGalleryImages = async (id: string) => {
   try {
     const record = await pb.collection("galleryImages").getOne(id);
     return record;
-  } catch (error: any) {
+  } catch (error) {
     console.log(error);
   }
 };
