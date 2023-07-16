@@ -7,14 +7,14 @@ import { getBlogsList } from "@/service/pocketbase/pocketbase";
 const Blogs = async () => {
   const blogsList = await getBlogsList();
 
-  const mainBlog = blogsList.filter((blog) => blog.isMainBlog);
-  const secondaryBlogs = blogsList.filter((blog) => !blog.isMainBlog);
+  const mainBlog = blogsList?.filter((blog) => blog.isMainBlog);
+  const secondaryBlogs = blogsList?.filter((blog) => !blog.isMainBlog);
 
   return (
     <Section>
       <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
         <div className="group relative flex flex-col h-full">
-          {mainBlog.map((blog) => (
+          {mainBlog?.map((blog) => (
             <Link key={blog.id} href={`./blogs/${blog.pathName}`}>
               <div>
                 <Image
@@ -38,7 +38,7 @@ const Blogs = async () => {
           ))}
         </div>
         <div className="grid gap-6 md:gap-8">
-          {secondaryBlogs.map((blog) => (
+          {secondaryBlogs?.map((blog) => (
             <Link
               key={blog.id}
               href={`./blogs/${blog.pathName}`}
